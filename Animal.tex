@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{cite}
+\bibliographystyle{plain}
+
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+\title{Chimpanzees}
+\author{Fangfang Li}
+\date{\today}
+\begin{document}
+\maketitle
+Chimpanzees are our closest living relatives.The figure \ref{1} is Chimpanzees We share almost 99 percent of our DNA with them. It turns out that they share some of our brain power as well.In a study published in 2007, researchers gave adult chimps, adolescent chimps, and college students the same cognitive test. The exam involved remembering where a list of numbers—from one to nine—were located on a touch screen monitor.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.5\textwidth]{A.jpg}
+\caption{Chimpanzees}
+\label{1}
+\end{figure}
+
+\par Chimps and humans alike saw the numbers in their locations for less than a second.\cite{higham1994bibtex} Then they were asked to remember where those numbers had been and show the researchers. The adult primates and humans performed about the same. But the adolescent chimps left them both in the dust. They remembered each number location with far better accuracy. Researchers think that these youngsters were using a type of photographic memory, which allows an individual to recall images with extremely high accuracy even if they only glanced at them for a split second.
+\renewcommand\refname{Reference}
+
+\bibliography{bibfile}
+\end{document}

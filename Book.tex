@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{multicol}
+\usepackage[top=1in, bottom=1in, left=1.25in, right=1.25in]{geometry}
+\usepackage{lscape}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{cite}
+\bibliographystyle{plain}
+% 设置上标显示参考文献编号的命令
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+\author{Fangfang Li}
+\date{May,1,2018}
+\title{Books}
+\begin{document}
+\maketitle
+You can either travel or read, but either your body or soul must be on the way. The popular saying has inspired many people to read or go sightseeing. Are you planning a trip to relax after working so hard for such a long time? Traveling, just like reading, is a refreshing journey, a temporary retreat from the bustling world. Here are 3 books we recommend that you take on your trip.
+%插入图片
+\begin{figure}[htbp]
+%\small
+\centering
+\includegraphics[width=0.5\textwidth]{BOOK.jpg}
+\caption{Book}
+\label{1}
+\end{figure}
+\par Books are indispensable partners in our life journey. Everyone has several favorite books and people's tastes may vary by age. \upcite{higham1994bibtex} A photographer captured reading enthusiasts ranging from 10 years old to 90 years old and talked with them about their favorite books. As time advances, people's way of reading may change, but the enjoyment from reading never changes.
+\renewcommand\refname{Reference}
+%\bibliographystyle{plain}
+\bibliography{bibfile}
+\end{document}

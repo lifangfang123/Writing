@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{cite}
+\usepackage{graphicx}
+\bibliographystyle{plain}
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+\begin{document}
+\title{Food}
+\author{Fangfang Li}
+\date{May,7,2018}
+\maketitle
+Experts have revealed whether six food staples and supplements really prevent colds and flu. While honey has long been praised for reducing the symptoms of colds, science reveals it does little more than soothe sore throats. Although an old wives tale claims chicken soup cures a host of ailments, it may simply provide a comforting meal and hydration boost, according to dietitian and British Dietetic Association spokesperson Aisling Pigott. Although often hailed for reducing the severity and symptoms of colds, a 2014 Cochrane review into 24 studies found the flower supplement does not significantly reduce the length of time people suffer with the sniffles.\upcite{higham1994bibtex} Ms Pigott claims there is insufficient evidence to recommend echinacea, however, if people wish to take the supplement it will unlikely do them any harm.
+\begin{center}
+\begin{tabular*}{36em}
+{@{\extracolsep{\fill}}|c|c|c|}
+\hline
+food & help & helpless \\ \hline
+Vitamin C  & 81\% & 19\% \\ \hline
+Chicken soup & 0\% & 100\% \\ \hline
+Garlic  & 100\% & 0\% \\ \hline
+\end{tabular*}
+{\bfseries Food}
+\end{center}
+\par An old wives tale praises honey for soothing sore throats and suppressing coughs, however, there is little evidence to support this, with many 'pro-honey' studies being funded by companies with conflicts of interest, according to Ms Pigott.
+
+\renewcommand\refname{Reference}
+%\bibliographystyle{plain}
+\bibliography{bibfile}
+\footnote{from"China Daily"}
+\end{document}
