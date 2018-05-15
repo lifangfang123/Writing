@@ -1,0 +1,46 @@
+\documentclass[a4paper]{article}
+\usepackage{graphicx,float}
+\usepackage{subfigure}
+\usepackage[justification=centering]{caption}
+\usepackage{cite}
+\setlength{\parindent}{1em}
+\bibliographystyle{plain}
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+ \begin{document}
+ \title{Eye}
+\author{Fangfang Li}
+\date{\today}
+\maketitle
+ \par There you are, minding your own business, when your eye starts to spasm out of control. The figure \ref{1} shows disadvantages. It’s a very annoying feeling which can persist for hours. But is there any cause for alarm? Trinidadians have quite a rich collection of superstitions concerning jumping eyes.\cite{higham1994bibtex} For instance, if your right eye jumps, you are going to hear good news, and if your left eye jumps, you are going to hear bad news. Superstitions aside, the short answer is that a twitching eye is totally fine, although in some exceptional cases it may underlie a neurological condition.
+\begin{figure}[!htp]
+\begin{minipage}[t]{0.5\linewidth}% 设定图片下字的宽度，在此基础尽量满足图片的长宽
+\centering
+\includegraphics[height=2.4cm,width=3.8cm]{1.JPG}
+\caption*{(a) This is the left picure.}%加*可以去掉默认前缀，作为图片单独的说明
+\label{fig:side:a}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}% 需要几张添加即可，注意设定合适的linewidth
+\centering
+\includegraphics[height=2.4cm,width=3.8cm]{3.JPG}
+\caption*{(b)This is the right picture.}
+\label{fig:side:b}
+\end{minipage}
+\caption{This is total name.}%n张图片共享的说明
+\end{figure}
+\par Eye spasm is characterized by the spontaneous contractions of muscle without muscular atrophy or weakness. The table \ref{tab1} summarizes bad haits.You might have experienced an involuntary muscle spasm in your knee or elbow. The same can happen to the orbicularis oculi muscle.
+\begin{table}[hbp]
+\centering
+\caption{Factors}
+\begin{tabular}{|c|c|c|}
+ \hline
+Factor & Male accuracy & Female accuracy \\ \hline
+Stress & 81\% & 74\% \\ \hline
+Fatigue & 91\% & 83\% \\ \hline
+Dry eyes & 61\% & 54\% \\ \hline
+             \end{tabular}
+             \label{tab1}
+\end{table}
+\par Not getting enough sleep or working too much overtime may cause your eye to complain. Scientists aren’t sure why, but they’ve found that getting more rest will make the symptoms subside.
+\renewcommand\refname{Reference}
+\bibliography{bibfile}
+\end{document}
