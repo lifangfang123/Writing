@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[top=1in, bottom=1in, left=1.25in, right=1.25in]{geometry}
+\usepackage{multicol}
+\usepackage{cite}
+\usepackage{ctex}
+\usepackage[justification=centering]{caption}
+\usepackage[colorlinks,citecolor=green]{hyperref}
+\bibliographystyle{plain}
+\title{Convolutional neural networks}
+\author{Fangfang Li}
+\date{May 25, 2018}
+\begin{document}
+\twocolumn
+\maketitle
+\begin{abstract}
+
+ \emph{Deepgaze uses the convolution neural network (CNN) to estimate the head posture and gaze direction, and carries out skin detection, motion detection and tracking through reverse projection.}
+\end{abstract}
+\section{Introduction}
+Convolutional neural networks (CNN or ConvNet) are feedforward artificial neural networks, as shown in Figure~\ref{1}. The connection pattern of neurons in the network is inspired by the animal's visual cortex structure, in which independent neurons respond to mutually covering neurons, and they together cover the entire visual area. Convolutional networks are inspired by physiological processes and are multi-layered perceptual variables designed to use only a minimal amount of preprocessing~\cite{Lawrence1997Face}. It has a wide range of applications in image and video recognition, recommendation systems, and natural language processing. Table~\ref{table1} is the structure of the proposed local network. We used average pooling as a method of the position-
+sensitive ROI pooling. The output value of b-th bin after the
+pooling is calculated as:
+\begin{equation}
+r(b)=\frac{1}{E}\sum_{(x,y) \in bin(b)} C_b(x_0^{}+x,y_0^{}+y)
+\end{equation}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.4\textwidth]{CC.jpg}
+\caption{Convolutional neural networks. }
+\label{1}
+\end{figure}
+
+\begin{table}[!htb]
+\caption{The structure of the local refine network. }
+\label{table1}
+\begin{tabular}{ccc}
+\hline
+Layer name 	&Output size	                   &Layer size\\
+\hline
+conv6             &P × P                           &1 × 1, 2048, 1\\
+conv7             &P × P                            &1 × 1, 2048, 1 \\
+PS-ROI pooling    &B × B × N                        & \\
+\hline
+\end{tabular}
+\end{table}
+\bibliography{Book1}
+\end{document}
