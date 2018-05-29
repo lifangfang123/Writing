@@ -1,0 +1,48 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{cvpr}
+\usepackage{CJK}
+\usepackage{enumerate}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{calc}
+\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
+\title{\textbf{Computer Vision}}
+\author{Fangfang Li\\\\May 29, 2018}
+\cvprfinalcopy
+\def\cvprPaperID{****}
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+\begin{document}
+\maketitle
+\par
+
+\begin{abstract}
+  Computer Vision is a science that studies how to make a machine “see”. Further, it refers to the use of cameras and computers instead of human eyes to identify, track and measure machine visions, and further to do graphics processing to make computers. The treatment becomes an image that is more suitable for human observation or transmitted to the instrument.
+\end{abstract}
+\section{Analysis of computer vision}
+
+Vision~\cite{Lawrence1997Face} is an integral part of various smart systems in various application areas such as manufacturing, inspection, document analysis, medical diagnostics, and military. Because of its importance, some advanced countries, such as the United States. The research is categorized as a major challenge in science and engineering that has a wide range of impacts on the economy and science, namely the so-called grand challenge. Fig.~\ref{1} is analysis of computer vision. The challenge of computer vision is to develop computer and robotic vision capabilities that are comparable to humans. Machine vision requires image signals, texture and color modeling, geometric processing and reasoning, and object modeling. A capable vision system should have all these processes tightly integrated.
+\par
+As a discipline, Computer Vision began in the early 60s, but many important advances in basic research in Computer Vision were achieved in the 1980s. Computer Vision is closely related to human vision~\cite{Fani_2017_CVPR_Workshops}. Having a correct understanding of human vision will be very beneficial to the study of computer vision~\cite{Forsyth2002Computer}. For this purpose we will first introduce human vision.
+
+\section{The principle of computer vision}
+Computer Vision is the use of various imaging systems instead of visual organs as input sensitive means. Computers replace brains for processing and interpretation~\cite{Szeliski2010Computer} The ultimate goal of Computer Vision research is to enable computers to visually observe and understand the world as humans do, and have the ability to adapt to the environment. The goal that can be achieved through long-term efforts. Therefore, before the final goal is achieved, the medium-term goal of people's efforts is to establish a visual system that can accomplish certain tasks based on visual intelligence and feedback to some degree of intelligence. For example, an important application area of Computer Vision is the visual navigation of autonomous vehicles, and there is no condition to realize systems that can recognize and understand any environment like human beings and complete autonomous navigation.
+\par
+Therefore, the goal of people's hard work is to achieve a visual assisted driving system that has the ability to track roads on highways and avoid collisions with vehicles ahead. One point to be pointed out here is that the computer plays the role of replacing the human brain in the computer vision system, but it does not mean that the computer must complete the visual information processing according to the human visual method. Computer Vision can and should process visual information based on the characteristics of the computer system. However, the human visual system is by far the most powerful and complete visual system known to people.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.4\textwidth]{CV.jpg}
+\caption{The relationship between computer vision and other fields. }
+\label{1}
+\end{figure}
+
+
+
+{\small
+\bibliographystyle{ieee}
+\bibliography{1}
+}
+\end{document}
