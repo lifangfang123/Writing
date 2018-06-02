@@ -1,0 +1,56 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{cvpr}
+\usepackage{CJK}
+\usepackage{enumerate}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cite}
+\usepackage{calc}
+\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
+\title{\textbf{DroidDetector: Android Malware Characterization and Detection Using Deep Learning}}
+\author{Fangfang Li\\\\June 2, 2018}
+\cvprfinalcopy
+\def\cvprPaperID{****}
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+\begin{document}
+
+
+\maketitle
+\section{Feature Extraction}
+To systematically characterize Android apps, we conduct static and dynamic analyses to extract features from each app, as shown in Fig.~\ref{1}. All the features fall under one of three types: required permissions, sensitive APIs, and dynamic behaviors~\cite{goodfellow2016deep}. Among them, required permissions and sensitive APIs are extracted through the static analysis, whereas dynamic behaviors are extracted through dynamic analysis. Specifically, all we need is the installation file of each Android app.
+\begin{figure}[htbp]
+\begin{center}
+
+\includegraphics[width=0.8\linewidth]{f.png}
+\end{center}
+ \caption{Feature extraction for an Android app.}
+\label{1}
+
+\end{figure}
+\section{Deep Learning Engine}
+Traditional machine learning models that have less than three layers of computation units are considered to have shallow architectures. Fortunately, deep learning models with a deep architecture change that situation. In practical use, a deep learning model can be constructed with different deep architectures. Deep Belief Networks (DBN) and convolutional neural networks. For this study, we chose DBN architecture to construct our deep learning model and characterize Android apps.
+
+As shown in Fig.~\ref{2}, the construction of a deep learning model has two phases, the unsupervised pre-training phase and supervised back-propagation phases~\cite{schmidhuber2015deep}. In the pre-training phase, the DBN is hierarchically built by stacking a number of Restricted Boltzmann Machines (RBM), with the deep neural network regarded as a latent variable model, which is beneficial for gradually evolving high-level representations. In the back-propagation phase, the pre-trained DBN is fine-tuned with labeled samples in a supervised manner. The deep learning model uses the same app set in both phases of the training process. In this way, the deep learning model is completely built.
+\par
+We implemented the Android malware detection engine DroidDetector based on the deep learning~\cite{krizhevsky2012imagenet}.
+\begin{figure}[htbp]
+\begin{center}
+
+\includegraphics[width=0.8\linewidth]{s.png}
+\end{center}
+ \caption{Deep learning model constructed with DBN.}
+\label{2}
+
+\end{figure}
+
+{\small
+\bibliographystyle{ieee}
+\bibliography{3}
+}
+
+
+\end{document}
