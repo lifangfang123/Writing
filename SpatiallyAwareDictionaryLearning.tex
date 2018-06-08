@@ -1,0 +1,90 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{cvpr}
+\usepackage{enumerate}
+
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{calc}
+\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
+\title{\textbf{Spatially Aware Dictionary Learning and Coding for Fossil Pollen IdentificationDesign and research of WiFi intelligent car based on computer vision technology
+}}
+\author{Fangfang Li\\\\June 8, 2018}
+\cvprfinalcopy
+\def\cvprPaperID{****}
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+\begin{document}
+
+
+\maketitle
+%\thispagestyle{empty}
+
+%%%%%%%%% ABSTRACT
+\begin{abstract}
+   In order to realize the work of some dangerous and complex areas, such as the places where the human can not be close to the fire and explosion scene, a kind of intelligent control car with two-way communication ability has put forward in this paper. Based on the machine vision technology and WiFi wireless communication technology, the car can transmit the environmental information of the working area in real time. At the same time, the control terminal can send control commands to the car to realize remote control. The overall framework of the intelligent car is designed, the whole system is composed of six parts, including power supply, control terminal, WiFi communication module, microcontroller, motor and camera. Finally, the performance of the intelligent car is tested by experiment, and the PCB board of the car control system is made. The experimental results show that the communication distance of communication, WiFi communication over Zigbee and Bluetooth has farther and faster communication speed, can meet the demand of intelligent vehicle two-way real-time communication, which provides a feasible communication scheme for the design of the intelligent car.
+\end{abstract}
+
+%%%%%%%%% BODY TEXT
+\section{Introduction}
+The full name of Wifi is wireless fidelity, is one of the most widely used wireless network transmission technology~\cite{moeslund2001survey}. If there is a mobile phone WiFi Internet function, the WiFi signal can not connect to the Internet through places Unicom mobile data, this application has been very extensive, but the application of WiFi in signal control based on little. In the place where there is a WiFi signal, you can not use mobile or Unicom's data connection to the Internet, the application has been very extensive, But the application of WiFi signal in control is still very few. However, compared to the Zigbee wireless transmission and Bluetooth signals with transmission distance, transmission speed and so many advantages, it is used in the design of remote image transmission and control command transmission system, has important significance for improving the transmission rate and transmission distance.
+
+
+\section{Design of WiFi intelligent car system based on computer vision technology}
+%------------------------------------------------------------------------
+
+The whole system of WiFi intelligent car based on computer vision technology is based on MCU and WiFi module as the core, mainly divided into six parts, including power supply, control terminal, WiFi communication module, microcontroller, motor and camera, the structure of the whole system as shown in Fig ~\ref{1}.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.4\textwidth]{ca.png}
+\caption{The overall design of the system structure. }
+\label{1}
+\end{figure}
+
+As shown in Fig~\ref{1}, the control terminal of WiFi intelligent car control based on computer vision technology can be a computer terminal, and it can also be a mobile phone, the main function of WiFi communication module is responsible for the communication between the control terminal and the lower computer, it can be transmitted back to the realtime image collected by the intelligent car terminal, and can also send control commands to the intelligent car terminal. The system uses intelligent car camera to collect environmental information, then through the MCU and WiFi control module, the real-time image is transmitted back to the host computer, according to the environment information, the host computer can send out the control commands, and the control commands can drive the motor of the intelligent car through the single chip microcomputer to control the moving or turning of the car. The mobile power supply is used in the whole system, and the power supply module can supply power to the WiFi communication module, MCU and motor simultaneously~\cite{Kong_2016_CVPR_Workshops}.
+
+
+
+
+
+\subsection{Design of Wifi intelligent car motor drive module}
+\par
+
+L298N of ST company is used as a motor drive chip, the chip has 15 legs, can drive a two-phase stepper motor or four phase stepper motor, but also can be used to drive two DC motors. the intelligent car based on machine vision uses four DC motors, the drive circuit is shown in Fig~\ref{2}.
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.4\textwidth]{w.png}
+\caption{Schematic circuit drive. }
+\label{2}
+\end{figure}
+As shown in Fig~\ref{2}, L298N chip can simultaneously drive two DC motors, assuming that the two motors were M1 and M2, The AB pin is mainly for the motor speed control, speed control using PWM pulse width modulation method~\cite{fikes1971classification}. Taking M1 motor as an example, when the IN1 is connected to a low level, IN2 is connected to a high level, you can specify the level when the motor is transferred, instead, the motor rotate reversely, reversing motor can effectively control the car forward backward, the speed and the forward backward control level as shown in table~\ref{table1}.
+
+
+
+
+\begin{table}[!htb]
+\centering
+\caption{The motor drive status table.}
+\label{table1}
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+Moto &Rotation mode &IN1 port &IN2 por \\
+\hline\hline
+M1 &Corotation  &Low &Hjgh  \\
+M1 &Reversal &Hjgh &Low  \\
+M1 & Stop & Low & Low  \\
+\hline
+\end{tabular}
+
+
+\end{table}
+Table~\ref{table1} shows the state of the motor driven by the high and low level, the speed can be adjusted by adjusting the speed of the high and low level, the motor forward and backward can be achieved by the motor positive and negative controlling, and through the WiFi real time environment information, operation state by remote control mode intelligent car. Through the environmental information returned by WiFi real time, remote control can be used to change the operating state of the intelligent car.
+{\small
+\bibliographystyle{ieee}
+\bibliography{1}
+}
+
+\end{document}
