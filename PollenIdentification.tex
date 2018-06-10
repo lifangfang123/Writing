@@ -1,0 +1,97 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\usepackage{times}
+\usepackage{multirow}
+% Include other packages here, before hyperref.
+
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex.  (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[breaklinks=true,bookmarks=false,colorlinks,
+            linkcolor=red,
+            anchorcolor=blue,
+            citecolor=green,
+            backref=page]{hyperref}
+
+\cvprfinalcopy % *** Uncomment this line for the final submission
+
+\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+%\ifcvprfinal\pagestyle{empty}\fi
+%\setcounter{page}{4321}
+\begin{document}
+
+%%%%%%%%% TITLE
+\title{\textbf{Spatially Aware Dictionary Learning and Coding for Fossil Pollen Identification }}
+\author{Fangfang Li\\\\June 10, 2018}
+
+\maketitle
+%\thispagestyle{empty}
+
+
+%%%%%%%%% BODY TEXT
+\section{Experiments}
+
+In this section, we introduce our dataset, show the effectiveness of the proposed exemplar selection method on synthetic data, study different features used for classiﬁcation and several hyperparameters in our pipeline, and report the classiﬁcation performance of our models and comparisons to several strong baselines.
+%-------------------------------------------------------------------------
+\subsection{Evaluation of Dictionary Learning}
+
+In addition to the synthetic tests, we verify the effectiveness of our exemplar selection method in the pollen identiﬁcation task by comparing the classiﬁcation performance of dictionaries consisting of randomly sampled patches. We also report the performance as a function of varying dictionary size~\cite{fikes1971strips}.
+We use SACO-I for this experiment, and vary the dictionary size by (randomly) selecting 300, 512 and 600 patches. The results are listed in Table~\ref{table1}. First, it is clear that a dictionary built from our selected exemplars performs much better than the counterpart consisting of randomly sampled patches. Second, a smaller dictionary of 300 atoms is sufﬁcient for our classiﬁcation task.
+
+\begin{table}[!htb]
+\centering
+\caption{Classiﬁcation accuracy.}
+
+\label{table1}
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+dictionary size & 300& 512 &600\\
+\hline
+Random Selection &77.66	&76.49	&77.23 \\
+\hline
+Discriminative Selection& 81.75&81.60& 82.34\\
+
+\hline
+\end{tabular}
+
+
+\end{table}
+
+%-------------------------------------------------------------------------
+\section{Feature Representation}
+
+To visualize the selected patches in the dictionary, we paste them on a black panel according to their coordinates. Figure~\ref{fig:1} shows the patches of the three species. We can see that these patches not only capture local texture information, but also convey a global shape and average size of the three species.
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.5,width=1\linewidth]{E.png}
+\end{center}
+\caption{ Classiﬁcation accuracy vs. layer index in VGG19 model.}
+\label{fig:1}
+\end{figure}
+%-------------------------------------------------------------------------
+\section{Conclusion and Future Work}
+
+We propose a robust framework for pollen grain identiﬁcation by matching testing images with a set of discriminative patches selected beforehand from a training set~\cite{horn1981determining}. To select the discriminative patches, we introduce a novel selection approach based on submodular maximization, which is very efﬁcient and effective in practice. To identify pollen grains using the selected patches as a dictionary, we present two spatially-aware sparse coding methods. We further accelerate these two methods using a relaxed formulation that can be computed in an efﬁcient noniterative manner.
+
+
+As our experiments show, this spatially aware exemplarbased coding approach signiﬁcantly outperforms strong baselines built on state-of-the-art CNN features~\cite{Kong_2016_CVPR_Workshops}. We leave open as future work the question of how such a matching mechanism could be fully embedded in a neural network architecture, how to exploit conﬁdence scores provided with expert labels, and extending the approach to perform cross domain matching of fossil and modern pollen samples.
+
+
+
+
+{\small
+\bibliographystyle{ieee}
+\bibliography{6}
+}
+
+\end{document}
