@@ -1,0 +1,84 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\usepackage{times}
+\usepackage{multirow}
+% Include other packages here, before hyperref.
+
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex.  (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[breaklinks=true,bookmarks=false,colorlinks,
+            linkcolor=red,
+            anchorcolor=blue,
+            citecolor=green,
+            backref=page]{hyperref}
+
+\cvprfinalcopy % *** Uncomment this line for the final submission
+
+\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+%\ifcvprfinal\pagestyle{empty}\fi
+%\setcounter{page}{4321}
+\begin{document}
+
+%%%%%%%%% TITLE
+\title{\textbf{Visual interpretability for deep learning: A survey }}
+\author{Fangfang Li\\\\June 12, 2018}
+
+\maketitle
+%\thispagestyle{empty}
+
+
+%%%%%%%%% BODY TEXT
+\begin{abstract}
+
+  This paper reviews recent studies in understanding neural-network representations and learning neural networks with interpretable/disentangled middle-layer representations. Although deep neural networks have exhibited superior performance in various tasks,  interpretability is always  Achilles’ heel of deep neural networks. At present, deep neural networks obtain high discrimination power at the cost of a low interpretability of their black-box representations. We believe that high model interpretability may help people break several bottlenecks of deep learning, learning from a few annotations, learning via human–computer communications at the semantic level, and semantically debugging network representations. We focus on convolutional neural networks (CNNs), and revisit the visualization of CNN representations, methods of diagnosing representations of pre-trained CNNs, approaches for disentangling pre-trained CNN representations, learning of CNNs with disentangled representations, and middle-to-end learning based on model interpretability. Finally, we discuss prospective trends in explainable artificial intelligence.
+\end{abstract}
+%-------------------------------------------------------------------------
+\section{Introduction}
+
+Convolutional neural networks (CNNs), 1998a; Krizhevsky, 2012; He, 2016; Huang , 2017) have achieved superior performance in many visual tasks, such as object classiﬁcation and detection. However, the end-to-end learning strategy makes CNN representations a black box. Except for the ﬁnal network output, it is difﬁcult to understand the logic of CNN predictions hidden inside the network~\cite{krizhevsky2012imagenet}. In recent years, a growing number of researchers have realized that high model interpretability is of signiﬁcant value in both theory and practice, and have developed models with interpretable knowledge representations~\cite{plis2014deep}.
+
+
+Finally, Zhang presented a method to discover potential, biased representations of a CNN. Figure~\ref{fig:1} biased representations of a CNN trained to estimate face attributes. When  an attribute usually co-appears with speciﬁc visual features in training images, CNN may use such co-appearing features to represent the attribute. When the co-appearing features used are not semantically related to the target attribute, these features can be considered as biased representations.
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.5,width=1\linewidth]{1.png}
+\end{center}
+\caption{ Biased representations in a convolutional neural network.}
+\label{fig:1}
+\end{figure}
+%-------------------------------------------------------------------------
+\section{Disentangling convolutional neural network representations into explanatory graphs and decision trees}
+
+As shown in Figure~\ref{fig:2}, each ﬁlter in a high conv-layer of a CNN usually represents a mixture of patterns.
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[scale=0.5,width=1\linewidth]{ec.png}
+\end{center}
+\caption{ Feature maps of a ftlter obtained using diﬀerent input images.}
+\label{fig:2}
+\end{figure}
+
+
+To visualize the feature map, the method propagates receptive ﬁelds of activated units in the feature map back to the image plane~\cite{schmidhuber2015deep}. In each sub-feature, the ﬁlter is activated by various part patterns in an image. This makes it difficult to understand the semantic meaning of a ﬁlter. References to color refer to the online version of this ﬁgure.
+%-------------------------------------------------------------------------
+
+
+
+
+{\small
+\bibliographystyle{ieee}
+\bibliography{9}
+}
+
+\end{document}
