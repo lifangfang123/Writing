@@ -1,0 +1,76 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\usepackage{times}
+\usepackage{multirow}
+% Include other packages here, before hyperref.
+
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex.  (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[breaklinks=true,bookmarks=false,colorlinks,
+            linkcolor=red,
+            anchorcolor=blue,
+            citecolor=green,
+            backref=page]{hyperref}
+
+\cvprfinalcopy % *** Uncomment this line for the final submission
+
+\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+%\ifcvprfinal\pagestyle{empty}\fi
+%\setcounter{page}{4321}
+\begin{document}
+
+%%%%%%%%% TITLE
+\title{\textbf{Visual interpretability for deep learning: A survey }}
+\author{Fangfang Li\\\\June 14, 2018}
+
+\maketitle
+
+\section{Disentangling convolutional neural network representations into decision trees}
+   Zhang further proposed a decision tree to encode decision modes in fully connected layers. The decision tree is not designed for classiﬁcation. As shown in Fig.~\ref{1}, the method mines potential decision modes memorized in fully connected layers. The decision tree organizes these potential decision modes in a coarse-to-fine manner. Furthermore, this study uses the method proposed by Zhang \emph{et al} [4]. Instead, it is used to quantitatively explain the logic for each CNN prediction; given an input image, we use CNN to make a prediction. Visualization of CNN representations in intermediate network layers. These methods either synthesize mainly the image that maximizes the score of a given unit in a pre-trained CNN, or invert feature maps of a conv-layer back to the input image. Please see Section 2 for detailed discussions. The decision tree tells people which ters in a convlayer are used for the prediction and how much they contribute to the prediction~\cite{Ahmed2015An}. A heat map visualizes the spatial distribution of the top patterns in the layer of the explanatory graph with the highest inference scores. References to color refer to the online version of this ﬁgure.
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.4\textwidth]{m.png}
+\caption{Heat maps of patterns. }
+\label{1}
+\end{figure}
+
+
+As shown in Fig.~\ref{2}, the method mines potential decision modes memorized in fully connected layers. The decision tree organizes these potential decision modes in a coarse-to-fine manner. Furthermore, this study uses the method proposed by Zhang.
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.4\textwidth]{s.png}
+\caption{Decision tree that explains a convolutional neural network (CNN) prediction at the semantic level. }
+\label{2}
+\end{figure}
+
+
+\section{Learning neural networks with interpretable/disentangled representations}
+Almost all methods mentioned in Sections focus on the understanding of a pre-trained network. In this section, we review studies of learning disentangled representations of neural networks, where representations in middle layers are no longer a black box but have clear semantic meanings. Compared with the understanding of pre-trained networks, learning networks with disentangled representations present more challenges. Up to now, only a few studies have been published in this direction.
+
+\section{Prospective trends and conclusions}
+%------------------------------------------------------------------------
+
+In this paper, we have reviewed several research directions within the scope of network interpretability~\cite{krizhevsky2012imagenet}. Visualization of a neural unital patterns was  the starting point of understanding network representations in the early years. Then, people have gradually developed methods to analyze feature spaces of neural networks and diagnose potential representation  hidden inside neural networks~\cite{Ouyang2014Joint}. At present, disentangling chaotic representations of conv-layers into graphical models or symbolic logic has become an emerging research direction to open the black-box of neural networks. The approach for transforming a pre-trained CNN into an explanatory graph was proposed. It exhibited a signial ant efficiency in knowledge transfer and weakly-supervised learning.
+
+
+End-to-end learning of interpretable neural net- works, whose intermediate layers encode comprehensible patterns, is also a prospective trend. Interpretable CNNs have been developed, where each in high conv-layers represents a special object part.
+
+
+Furthermore, based on interpretable representations of CNN patterns, semantic-level middle-to-end learning was proposed to speed up the learning process. Compared with traditional end-to-end learning, middle-to-end learning allows human interactions to guide the learning process and can be applied with a few annotations for supervision.
+In the future, we believe that the middle-to-end learning will continuously be a fundamental research direction. In addition, based on the semantic hierarchy of an interpretable network, debugging CNN representations at the semantic level will create new visual applications.
+{\small
+\bibliographystyle{ieee}
+\bibliography{9}
+}
+
+\end{document}
