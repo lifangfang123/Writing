@@ -1,0 +1,61 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\usepackage{times}
+\usepackage{multirow}
+% Include other packages here, before hyperref.
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex. (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[breaklinks=true,bookmarks=false,colorlinks,
+linkcolor=red,
+anchorcolor=blue,
+citecolor=green,
+backref=page]{hyperref}
+\cvprfinalcopy % *** Uncomment this line for the final submission
+\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+%\ifcvprfinal\pagestyle{empty}\fi
+%\setcounter{page}{4321}
+\begin{document}
+%%%%%%%%% TITLE
+\title{\textbf{3D Face Reconstruction System Based on Deep Learning and Sparse Face Model }}
+\author{Fangfang Li\\\\June 16, 2018}
+\maketitle
+%\thispagestyle{empty}
+%%%%%%%%% BODY TEXT
+\begin{abstract}
+3D face reconstruction technology is very popular in the digital image processing area. The method of 3D face reconstruction based on single image faces many challenges such as: depth information is lacked due to the input of 2D image; the statistical face model is not accurate; and many current difficulties can be solved by using new technique like deep learning. In order to get an accurate and efficient 3D face reconstruction result, a new 3D face reconstruction algorithm based on deep learning and sparse 3D face model is proposed in this paper. Deep learning is exploited to find out the statistical property of 3D human face. And sparse 3D face model is applied to improve algorithm efficiency. Experiments under different conditions are performed to prove the accuracy and robustness of our proposed algorithm.
+\end{abstract}
+%-------------------------------------------------------------------------
+\section{Introduction}
+With the development of information technology, 3D face reconstruction research becomes a hot topic in the fields of machine vision, depth learning and artificial intelligence. A lot of theoretical knowledge is accumulated by previous studies. Significant progress is made in the cost and accuracy of hardware equipment. Nowadays the development of 3D face reconstruction is very fast. 3D face reconstruction technology is applied to the reality scene in the game production area, film area, medical area, virtual reality, distance teaching area and so on. There are many ways to implement 3D face reconstruction. The current frontier method theory is investigated in this paper.
+
+In view of existing 3D face reconstruction algorithms, two improvements are described in this paper. The main achievement of this paper is proposing an automatic 3D face reconstruction system. Deep learning is the state-of-the-art method in the face recognition area. Deep learning is used in  our proposed method to improve the accuracy of 3D face reconstruction. Sparse face model has less vertex than traditional 3D morphable model. So the speed of 3D face reconstruction can be accelerated~\cite{Kemelmachershlizerman2011Face}.
+
+%-------------------------------------------------------------------------
+\section{Methodology}
+The flowchart of our proposed 3D face reconstruction system is shown in Fig.~\ref{fig:1}. Firstly, face location is detected from the input image. Active Shape Model (ASM) algorithm is used to locate face feature points. 3D data from BJUT-3D face database is aligned by feature points location, image segmentation, re-sampling. Secondly, 2D feature points from the input image and 3D feature points from BJUT-3D face database are used to estimate the depth information of the 2D feature points from input image. Thirdly, 3D data from BJUT-3D face database~\cite{Lin2010Accurate} is used to train deep learning net. After training, deep learning net is used to recognize face between the input image and the 3D data from BJUT-3D face database. Similar face is found to calculate the 3D statistical face model. The face feature points on those similar faces are used to calculate the 3D sparse face model. Fourthly, 3D sparse face model and the estimation of 3D feature points from input image are input thin plate spline (TPS) to calculate the parameters of the TPS equation. The vertex on the 3D statistical face model is input TPS equation for deformation. Fifthly, Poisson image fusion  algorithm is used to recover the blocked texture information on ear or cheek area. After texture mapping, the personalized 3D Face Reconstruction model is acquired.
+
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[scale=0.5,width=1\linewidth]{zhi.png}
+\end{center}
+\caption{ Flowchart of 3D reconstruction system.}
+\label{fig:1}
+\end{figure}
+\subsection{Face Data Preprocessing}
+Face detection is the first step of our designed 3D face reconstruction system~\cite{Liu2016Joint}. Active Shape Model (ASM) algorithm is used to locate face feature points. The feature points of the training face are calibrated manually. The feature points are marked manually on the contours of the face and the edge of the facial features, like eyes, nose, mouth and other corner. The accuracy of these feature points affects the accuracy of the subsequent face feature point localization algorithm. The XM2VTS Face database includes 2360 face images of 295 people, and each face image has been manually marked with 68 feature points. It is used in our paper to train ASM algorithm.
+
+%-------------------------------------------------------------------------
+{\small
+\bibliographystyle{ieee}
+\bibliography{11}
+}
+\end{document}
