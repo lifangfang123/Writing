@@ -1,0 +1,120 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\usepackage{times}
+\usepackage{multirow}
+% Include other packages here, before hyperref.
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex. (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[breaklinks=true,bookmarks=false,colorlinks,
+linkcolor=red,
+anchorcolor=blue,
+citecolor=green,
+backref=page]{hyperref}
+\cvprfinalcopy % *** Uncomment this line for the final submission
+\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+%\ifcvprfinal\pagestyle{empty}\fi
+%\setcounter{page}{4321}
+\begin{document}
+%%%%%%%%% TITLE
+\title{\textbf{Deep Learning Tracker via SVM Ranking Vector}}
+\author{Fangfang Li\\\\June 22, 2018}
+\maketitle
+%\thispagestyle{empty}
+%%%%%%%%% BODY TEXT
+\begin{abstract}
+The deep learning based trackers can always achieve high tracking
+precision and strong adaptability in different scenarios. However, due
+to the fact that the number of the parameter is large and the
+fine-tuning is challenging, the time complexity is high. In order to
+improve the efficiency, author proposed a tracker based on fast deep
+learning through constructing a new network with less redundancy.
+Based on the theory of deep learning, author proposed a deep neural
+network to describe essential features of images. Furthermore, fast
+deep learning can be achieved by restricting the size of network. With
+the help of GPU, the time complexity of the network training is
+released to a large extent.
+\end{abstract}
+%-------------------------------------------------------------------------
+\section{Introduction}
+Object tracking is an important branch of computer vision.
+It plays a key role in many areas that contain objects
+Identification, human-computer interaction and video surveillance.
+A complete visual tracking system should establish observation models
+Based on some appropriate search methods. Particle filter and
+Is a widely used search method. We choose
+The former one, it can handle non-linear and non-Gaussian
+problem. It is widely used in algorithm research and
+Engineering practice, which is suitable for static vision
+Platforms and mobile platforms. A reliable observation model is
+The key is to improve tracking robustness, including color histograms, textures, contours, and the fusion of these features. based on
+High-level visual cues work well when the appearance of the target changes
+Contains translations, rotations, and scaling changes, but it may drift over time. Some occlusion appeared. Based on the primary visual cues
+Prevents occlusion, but lacks robustness in complex work
+background. Deep learning~\cite{Ouyang2014Joint} based on features combined with upper grades. Leads and juniors express data in a more efficient way.
+At the same time, it can be used in digital imaging and other fields
+Processing, speech recognition, in-depth
+Neural network and big data pretraining.
+%-------------------------------------------------------------------------
+\section{The deep learning based feature extractor}
+From a pattern recognition point of view, visual tracking is a model
+The classification problem separates the goal from the background. The
+Feature selection and extraction limit the execution of these tasks.
+The author uses a deep learning method as a feature extractor, which is possible. Features are represented by multiple descriptions.
+
+
+Automatic encoder is an important theoretical basis for deep learning
+Consists of input, hidden layers, and output. The encoding and decoding
+way is described as:
+\begin{equation}
+ h=sigm(Wx+b)
+\end{equation} 	
+\begin{equation}
+\widehat{x}=sigm(W^Th+c)
+\end{equation}
+
+where $sigm(z)=\frac{1}{1+exp(-z)}$ denotes	the	sigmoid function, x
+denotes the vector transformed from the input data. Different from the
+traditional neural network, the weight matrix $W$ and $W^T$ are transposed. b
+and c respectively denote the encoding bias and the decoding bias~\cite{krizhevsky2012imagenet}.
+The autoencoder learning is aimed at reconstructing the input to a
+maximum limit, which optimizes the target function:
+\begin{equation}
+min\sum_{i=1}^N||x^j-\widehat{x}^j||_{2}^2+η\left(
+||W||_{F}^2+||W^T||_{F}^2  \right)
+\end{equation}
+
+
+The Denoising Autoencoder (DAE)~\cite{Ahmed2015An} put some noise into the input data
+and thex is transformed to $\widehat{x}$, which is defined as:
+\begin{equation}
+\widehat{x}= x\times B
+\end{equation}
+Based on greedy algorithm, superimposed denoising automatic encoder (SDAE).
+It's built with a few DAEs that have been trained in one step
+step. The author uses this network to extract functionality. Where elements of the matrix B are sampled from a Bernoulli
+distribution. The training process works similarly to AE as shown in
+Figure~\ref{fig:1}.
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.5,width=1\linewidth]{oo.png}
+\end{center}
+\caption{ The working principle of DAE.}
+\label{fig:1}
+\end{figure}
+
+
+
+{\small
+\bibliographystyle{ieee}
+\bibliography{9}
+}
+\end{document}
