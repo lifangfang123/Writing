@@ -1,0 +1,64 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\usepackage{times}
+\usepackage{multirow}
+% Include other packages here, before hyperref.
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex. (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[breaklinks=true,bookmarks=false,colorlinks,
+linkcolor=red,
+anchorcolor=blue,
+citecolor=green,
+backref=page]{hyperref}
+\cvprfinalcopy % *** Uncomment this line for the final submission
+\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+%\ifcvprfinal\pagestyle{empty}\fi
+%\setcounter{page}{4321}
+\begin{document}
+%%%%%%%%% TITLE
+\title{\textbf{Deep Learning Tracker via SVM Ranking Vector}}
+\author{Fangfang Li\\\\June 24, 2018}
+\maketitle
+%\thispagestyle{empty}
+%%%%%%%%% BODY TEXT
+
+%-------------------------------------------------------------------------
+\section{The improvements of the network}
+Wang's DLT tracker applied deep neural networks to visual tracking and achieved excellent performance. However, the frame rate is kept at 13 frames per second on average, which is not enough for practical applications~\cite {krizhevsky2012imagenet}. In the article, the network was redesigned based on some new ideas proposed in recent years to adapt to visual tracking: a large number of pre-training data is limited, the accuracy of the test data set is reduced, and overfitting may occur. In the article, the author adopted a narrow network by reducing some of the model redundancy, which not only alleviates over-fitting, but also greatly improves the update speed of the network.Hanton, the pioneer of deep learning, put forward the theory of dropping out of school. He said that half of the feature detectors are not used, which is capable. It is showed prevent the  negative influence  of different features
+in  Figure~\ref{fig:1} to  describe  the  differences  between the networks of bringing in the dropout and the original
+one~\cite{Ahmed2015An}.
+
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[scale=0.5,width=1\linewidth]{bbb.png}
+\end{center}
+\caption{ The theory of dropout.}
+\label{fig:1}
+\end{figure}
+The searching strategy of our algorithm is establishing a particle filter based on the theory of Brownian motion. The position coordinate is defined as an affine transformation:
+\begin{equation}
+\vec{x}=(x_t:y_t:s_t)
+\end{equation} 
+Where $x_t$ and $y_t$ denote the current offset describe the scaling change. The state parameters of candidate regions of the target follow the Gaussian distribution and they are mutual independence.
+In the article, the author design a ranking vector based on SVM to evaluate the particle confidence, which is between 0 and 1. The author selected the highest one as the result. The ranking vector come from the decision function, which is described as:
+\begin{equation}
+f(x)=sgn(w^*x+b^*)
+\end{equation}
+%-------------------------------------------------------------------------
+\section{Deep learning tarcker via svm ranking vector }
+Due to the fact that the network of our extractor is deep and the number of the parameter is large, the model is pre-trained under a large scale dataset to achieve an expressive power and construct a more robust visual tracking system~\cite{Ouyang2014Joint}. We chose cifar-10 as the pre-training dataset. It contains 50000 training images (RGB, $32\times32$ ) and 10000 testing images (RGB, $32\times32$ ). The network is pre-trained through unsupervised learning such 50000 non-label images.
+The author warped the  training  images  from  $32\times32$  to  $16\times16$ and transformed them to grey. Then they put them into the network. Due to the fact that the overall parameter tuning may interfere the completed ones, the pre-training of autoencoder adopt the way of "from the bottom up" and being fixed step by step. The author applied the theory of dropout to add some sparse restraints to the model and achieved a robust performance.
+{\small
+\bibliographystyle{ieee}
+\bibliography{13}
+}
+\end{document}
