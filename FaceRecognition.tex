@@ -1,0 +1,64 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\usepackage{times}
+\usepackage{multirow}
+% Include other packages here, before hyperref.
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex. (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[breaklinks=true,bookmarks=false,colorlinks,
+linkcolor=red,
+anchorcolor=blue,
+citecolor=green,
+backref=page]{hyperref}
+\cvprfinalcopy % *** Uncomment this line for the final submission
+\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+%\ifcvprfinal\pagestyle{empty}\fi
+%\setcounter{page}{4321}
+\begin{document}
+%%%%%%%%% TITLE
+\title{\textbf{Face Recognition Based on Fitting a 3D Morphable Model}}
+\author{Fangfang Li\\\\June 26, 2018}
+\maketitle
+%\thispagestyle{empty}
+%%%%%%%%% BODY TEXT
+\begin{abstract}
+This paper proposes a facial recognition method for various posture changes from the front to the section view and various illuminations including projection and specular reflection. To illustrate these changes, the algorithm uses computer graphics to simulate the image formation process in 3D space and it estimates the 3D shape and the texture of the face from a single image. This estimation is achieved by fitting a statistical, deformation model of the 3D image. The model is learned from a set of textured 3D head scans. The author describes the construction of the deformation model, which is suitable for image algorithms and facial recognition frameworks. In this framework, the face is represented by the model parameters of the 3D shape and texture.
+\end{abstract}
+\section{Introduction}
+When performing face recognition from an image, the grayscale or color value provided to the recognition system depends not only on the identity of the person but also on parameters such as head posture and lighting. Changes in posture and illuminance may produce greater variations than the differences between images of different people, which is a major challenge for face recognition~\cite{Liu2016Joint}. The goal of the recognition algorithm is to separate the facial features determined by the intrinsic shape and color (texture) of the face surface from the random image generation conditions. Unlike pixel noise, these conditions can be consistently described throughout the image by a relatively small set of external parameters. Face recognition methods in two basic strategies: One approach is to treat these parameters as separate variables and explicitly model their functional roles. Another method does not formally distinguish between intrinsic and extrinsic parameters, and the fact that external parameters cannot be used for facial diagnosis is only captured statistics~\cite{Lin2010Accurate}.
+%-------------------------------------------------------------------------
+\section{Model-based identification}
+In many applications, the synthesized view must satisfy standard imaging conditions, which can be defined by identifying the properties of the algorithm, taking a gallery image (taking a photo), or by setting a fixed camera for detecting the image. Standard conditions can be estimated from our example image by our system. If the second system requires multiple images or does not define standard conditions, it may be useful to synthesize a different set of views for each person~\cite{Kemelmachershlizerman2011Face}, as shown in Figure~\ref{fig:1}.
+
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[scale=0.5,width=1\linewidth]{4.png}
+\end{center}
+\caption{In 3D model fitting, light direction and intensity are estimated automatically, and cast shadows are taken into account.}
+\label{fig:1}
+\end{figure}
+%-------------------------------------------------------------------------
+\section {A  morphable model of 3D faces}
+The morphable face model is based on a vector space representation of faces that is constructed such that any convex combination1 of shape and texture vectors $S_i$ and $T_i$ of a set of examples describes a realistic human face:
+The searching strategy of our algorithm is establishing a particle filter based on the theory of Brownian motion. The position coordinate is defined as an affine transformation:
+\begin{equation}
+S=\sum_{i=1}^m a^iS^i, T=\sum_{i=1}^m b^iT^i
+\end{equation} 
+Continuous change of model parameters ai
+A smooth transition that moves every point of the initial surface to a point on the final surface. Just as in the deformation, artifacts in the intermediate state of deformation can only be avoided when the initial point and the final point are the corresponding structures of the face (for example, the tip of the nose). Therefore, dense point-to-point correspondence is crucial for defining shapes and texture vectors.
+%-------------------------------------------------------------------------
+
+{\small
+\bibliographystyle{ieee}
+\bibliography{11}
+}
+\end{document}
