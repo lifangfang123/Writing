@@ -1,0 +1,66 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\usepackage{times}
+\usepackage{multirow}
+% Include other packages here, before hyperref.
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex. (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[breaklinks=true,bookmarks=false,colorlinks,
+linkcolor=red,
+anchorcolor=blue,
+citecolor=green,
+backref=page]{hyperref}
+\cvprfinalcopy % *** Uncomment this line for the final submission
+\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+%\ifcvprfinal\pagestyle{empty}\fi
+%\setcounter{page}{4321}
+\begin{document}
+%%%%%%%%% TITLE
+\title{\textbf{Face Recognition Based on Fitting a 3D Morphable Model}}
+\author{Fangfang Li\\\\June 28, 2018}
+\maketitle
+%\thispagestyle{empty}
+%%%%%%%%% BODY TEXT
+\begin{abstract}
+The authors attempted to develop a real-time face detection and recognition system that uses an appearance-based approach. For testing purposes, the author used the Viola Jones algorithm. Identify our face using Eigen Faces (PCA-based algorithm). When recognizing a face in real time, a data training set is needed. For the data training set, the author photographed each of the five images and manipulated the feature values to match the known individuals.
+\end{abstract}
+\section{Introduction}
+Face recognition is becoming one of the major aspects in computer vision. Face Recognition have various applications including Security Systems, Augmented reality, Real time identification and many more. Over the past few decades there have been numerous works done in this field and many methods and algorithms have been proposed. Although a revolutionary progress has been made regarding face recognition under usual circumstances and small variations but when it comes to recognizing faces in extreme variations like lighting and facial expressions the accuracy of the systems decreases dramatically~\cite{Wolf2011Face}. Figure~\ref{fig:1} shows how a same person under different light sources and different facial expressions appears to be different~\cite{Wagner2009Towards}.
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[scale=0.5,width=1\linewidth]{444.png}
+\end{center}
+\caption{Same person different angle.}
+\label{fig:1}
+\end{figure}
+
+%-------------------------------------------------------------------------
+\section{Related works}
+In face recognition the main challenge arises with the variation in illumination, light sources, view angle, facial expressions. The difference between two images of the same person is induced due to illumination. This confuses the system based comparing images and they misclassify the identity of the input image. This phenomenon has been observed in while using a data set of n persons. Again the author see where different view angles may cause problems in Figure~\ref{fig:2}. Here we can see how a same person viewed in different angles might appear to be different~\cite{He2005Face}.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.5,width=1\linewidth]{333.png}
+\end{center}
+\caption{ Different light and expression.}
+\label{fig:2}
+\end{figure}
+In their approach to face recognition they used Eigen Faces which is a PCA based algorithm. And to detect face we used
+Viola-Jones algorithm. They took five images of each person and used them as a data set. Than they manipulated the Eigen values of the images to find a specific person.
+
+%-------------------------------------------------------------------------
+
+{\small
+\bibliographystyle{ieee}
+\bibliography{17}
+}
+\end{document}
