@@ -1,0 +1,58 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\usepackage{times}
+\usepackage{multirow}
+% Include other packages here, before hyperref.
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex. (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[breaklinks=true,bookmarks=false,colorlinks,
+linkcolor=red,
+anchorcolor=blue,
+citecolor=green,
+backref=page]{hyperref}
+\cvprfinalcopy % *** Uncomment this line for the final submission
+\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+%\ifcvprfinal\pagestyle{empty}\fi
+%\setcounter{page}{4321}
+\begin{document}
+%%%%%%%%% TITLE
+\title{\textbf{Deep Disguised Faces Recognition}}
+\author{Fangfang Li\\\\June 30, 2018}
+\maketitle
+%\thispagestyle{empty}
+%%%%%%%%% BODY TEXT
+\begin{abstract}
+In this paper, authors merge several public web-collected face recognition datasets including CASIA-WebFace, CelebA~\cite{He2005Face}, MS1M~\cite{Wolf2011Face}, UMDFaces~\cite{Wagner2009Towards} and VGGFace2 as the generic face recognition training dataset. They have removed the images or identities overlap between training and testing based on provided identity names. For disguised face recognition adaptation, they select the first 250 transformation vectors to form the subspace projection $W_{select}$.
+\end{abstract}
+\section{Testing Details}
+They use $L_2$ distance to compute the identity distance in their two-stage training. In the one-stage training, they compute the cosine similarity as identity similarity. In the Disguised Faces in the Wild (DFW) training, for a given subject, positive pairs are constructed from normal, validation and disguised face images. In contrast, negative pairs are constructed from normal and impostor face images as well as cross subject face images.
+%-------------------------------------------------------------------------
+\section{One-stage Training}
+The authors use two DCNNs for un-aligned and aligned faces respectively. In one-stage training, they evaluate the effectiveness of using multiple DCNNs. In their approach to face recognition they used Eigen Faces which is a PCA based algorithm. And to detect face we used
+Viola-Jones algorithm. They took five images of each person and used them as a data set. Than they manipulated the Eigen values of the images to find a specific person.The results of the experiment is shown in Figure~\ref{fig:1}, it can be seen that combining different DCNNs can improve the performance.
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.5,width=1\linewidth]{333.png}
+\end{center}
+\caption{ Different light and expression.}
+\label{fig:1}
+\end{figure}
+In their approach to face recognition they used Eigen Faces which is a PCA based algorithm. And to detect face we used
+Viola-Jones algorithm. They took five images of each person and used them as a data set.
+
+%-------------------------------------------------------------------------
+
+{\small
+\bibliographystyle{ieee}
+\bibliography{17}
+}
+\end{document}
